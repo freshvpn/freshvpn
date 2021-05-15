@@ -1,0 +1,24 @@
+{
+   "background": {
+      "persistent": true,
+      "scripts": [ "bg.js" ]
+   },
+   "browser_action": {
+      "default_popup": "popup/popup.html"
+   },
+   
+   "content_security_policy": "script-src 'self' https://www.googletagmanager.com; object-src 'self'",
+   "default_locale": "en",
+   "description": "Use the Internet safely, anonymously and in 1 click",
+   "icons": {
+      "128": "icons/icon-128.png",
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png"
+   },
+   "manifest_version": 2,
+   "name": "Fresh VPN - secure and free VPN",
+   "permissions": [ "proxy", "webRequest", "webRequestBlocking", "storage", "\u003Call_urls>" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0.0",
+   "web_accessible_resources": [ "images/*.png" ]
+}
