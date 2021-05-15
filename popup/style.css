@@ -1,0 +1,429 @@
+@font-face {
+    font-family: 'Titillium Web', sans-serif;
+    src: url("/fonts/TitilliumWeb-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Titillium Web', sans-serif;
+    src: url("/fonts/TitilliumWeb-SemiBold.ttf");
+    font-weight: 600;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 335px;
+    height: 600px;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #1f4e6f;
+    background: linear-gradient(210deg, #63fdcd 0%, #00c790 100%);
+}
+
+#logo {
+    position: absolute;
+    left: 0px;
+    width: 130px;
+    height: 56px;
+    margin: 3px 0px 0px 10px;
+}
+
+.status-block, .ip-block, .location-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.status-block {
+    margin-top: 70px;
+    height: 60px;
+}
+
+.ip-block {
+    margin-top: 5px;
+    height: 60px;
+}
+
+#status, #ip {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+#status {
+    font-size: 18px;
+}
+
+#ip {
+    font-size: 22px;
+    color: #2a486d;
+}
+
+#connect-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 25px;
+    width: 176px;
+    height: 176px;
+    background: #a6e6ff;
+    border-radius: 50%;
+    box-shadow: 0px 0px 17px rgba(255 255 255 / 70%), 0px 0px 15px rgba(24 177 253 / 40%);
+    cursor: pointer;
+}
+
+.button-content {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 146px;
+    height: 146px;
+    background: #63fdcd;
+    box-shadow: inset 0px 0px 36px rgba(59, 12, 84, 0.1);
+}
+
+.button-content:hover {
+    background: #00c790;
+}
+
+.button-content:active {
+    background: #3dc39e;
+}
+
+.connect-icon {
+    width: 45px;
+    height: 51px;
+    margin-bottom: 40px;
+}
+
+.location-block {
+    margin-top: 40px;
+    width: 100%;
+}
+
+.wrapper-dropdown {
+    cursor: pointer;
+    width: 304px;
+    height: 60px;
+    margin: 16px 0px 15px 0px;
+    border-radius: 32px;
+    display: flex;
+    align-items: center;
+    background: #63fdcd;
+    border: 1px solid #60c6ff;
+    box-shadow: inset 0px 0px 24px rgba(255, 255, 255, 0.2);
+}
+
+.wrapper-dropdown p {
+    width: 180px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.wrapper-dropdown:hover {
+    border: 1px solid #0ba4ec;
+}
+
+.wrapper-dropdown:active {
+    background: #DDC3F1;
+    border: 1px solid #CE41F1;
+}
+
+.dropdown-item {
+    display: none;
+    position: relative;
+    width: 100%;
+    align-items: center;
+    padding-left: 20px;
+}
+
+#dropdown-arrow {
+    position: absolute;
+    right: 26px;
+    transform: rotate(180deg);
+}
+
+.active {
+    display: flex;
+}
+
+.wrapper-country-name {
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+#flag {
+    width: 30px;
+    height: 30px;
+}
+
+/* Кнопка индикатора */
+
+.connection-indicator {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.connection-indicator label {
+    font-size: 16px;
+}
+
+.indicator-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.indicator-checkbox+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+}
+
+.indicator-checkbox+label::before {
+    content: '';
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #CEBCE1;
+    border-radius: 4px;
+    margin-right: 12px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+}
+
+.indicator-checkbox+label:hover::before {
+    border: 1px solid #CE41F1;
+}
+
+.indicator-checkbox:checked+label:before {
+    content: "\2713";
+    border: 1px solid #1b5d82;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+    font-size: 15px;
+    color: #1b5d82;
+    text-align: center;
+    line-height: 15px;
+}
+
+/* Лист со странами */
+
+.dropdown-area {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 530px;
+    bottom: 0px;
+    z-index: 3;
+    background: linear-gradient(180deg, #07b5f7 0%, #0ad8ff 100%);
+    box-shadow: 0px -10px 16px rgba(83, 18, 114, 0.15);
+    border-radius: 16px 16px 0px 0px;
+}
+
+.dropdown-title {
+    width: 100%;
+    font-weight: normal;
+    margin: 21px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.dropdown-title p {
+    pointer-events: none;
+}
+
+#dropdown-area-cross {
+    color: #1d6384;
+    font-size: 18px;
+    right: 24px;
+    cursor: pointer;
+    position: absolute;
+}
+
+.location-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 472px;
+    margin-top: 20px;
+    overflow-y: auto;
+    position: absolute;
+}
+
+.location-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 24px 0px 24px;
+    font-size: 20px;
+    border-bottom: 1px solid #4094bd;
+    color: #23546f;
+    width: 100%;
+    min-height: 60px;
+    cursor: pointer;
+}
+
+.location-item p {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 170px;
+}
+
+.country-name {
+    margin-left: 14px;
+    display: flex;
+    align-items: flex-start;
+    width: 180px;
+}
+
+.location-item img {
+    width: 28px;
+    height: 28px;
+}
+
+/* Переменные статусы */
+
+#status::before, .button-content-text::before {
+    font-size: 18px;
+}
+
+.disconnected #status::before, .disconnected .button-content-text::before {
+    color: #ffffff;
+}
+
+.disconnected #status::before {
+    content: "Not Connected";
+}
+
+.button-content-text {
+    position: absolute;
+    bottom: 48px;
+}
+
+.disconnected .button-content-text::before {
+    content: "Connect";
+}
+
+/*  */
+
+.connected #status::before, .connected .button-content-text::before {
+    color: #037700;
+}
+
+.connected #status::before {
+    content: "Connected";
+}
+
+.connected .button-content-text::before {
+    content: "Disconnect";
+}
+
+.connecting #status::before, .connecting .button-content-text::before {
+    color: #f96503;
+}
+
+.connecting #status::before {
+    content: "Connecting...";
+}
+
+.connecting .button-content-text::before {
+    content: "Stop";
+}
+
+.connecting .connect-icon {
+    background-image: url('/images/stop-icon.png');
+}
+
+.disconnected .connect-icon {
+    background-image: url('/images/connect-icon.png');
+}
+
+.connected .connect-icon {
+    background-image: url('/images/disconnect-icon.png');
+}
+
+/* Качество прокси */
+
+.signal-level {
+    width: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-right: 16px;
+}
+
+.level-one, .level-two, .level-three, .level-four {
+    background: #D2D5DE;
+    border-radius: 2px;
+    width: 3px;
+    margin-right: 3px;
+}
+
+.level-one {
+    height: 10px;
+}
+
+.level-two {
+    height: 12px;
+}
+
+.level-three {
+    height: 15px;
+}
+
+.level-four {
+    height: 20px;
+}
+
+/* Radio для стран */
+
+.country-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: #1d93c1;
+    border: 1px solid #5ee5f9;
+    box-shadow: inset 0px 2px 4px rgba(130, 229, 241, 0.25);
+    border-radius: 11px;
+}
+
+.location-item:hover .country-marker:not(.marker-checked) {
+    border: 1px solid #256684;
+}
+
+.selected-country .country-marker {
+    border: 1px solid #256684;
+}
+
+.selected-country .country-marker-checker {
+    height: 12px;
+    width: 12px;
+    border-radius: 6px;
+    background: #256684;
+    box-shadow: 0px 1px 2px rgba(255, 255, 255, 0.25);
+}

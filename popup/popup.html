@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="UTF-8">
+        <meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    </head>
+    <body>
+        <header style="width:320; text-align: center;">
+            <img id="logo" src="/images/logo.png" style="width: 75%">
+        </header>
+        <div class="status-block">
+            <p></p>
+            <p id="status"><p>
+        </div>
+        <div class="ip-block">
+            <p>Your IP address:</p>
+            <p id="ip"></p>
+        </div>
+        <div id="connect-button">
+            <div class="button-content">
+                <div class="connect-icon"></div>
+                <p class="button-content-text"></p>
+            </div>
+        </div>
+        <div class="location-block">
+            <p>Connect to vpn-server:</p>
+            <div class="wrapper-dropdown">
+                <div class="dropdown-item">
+                    <img id="flag" src="" alt="flag">
+                    <div class="wrapper-country-name"><p id="country"></p></div>
+                    <i id="dropdown-arrow" class="fa fa-chevron-up" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="connection-indicator">
+            <input type="checkbox" class="indicator-checkbox" id="indicator" name="indicator" value="yes">
+            <label for="indicator">Show connection indicator</label>
+        </div>
+        <div class="dropdown-area">
+            <div class="dropdown-title">
+                <p>Select virtual location:</p>
+                <i id="dropdown-area-cross" class="fa fa-times" aria-hidden="true"></i> 
+            </div> 
+            <ul class="location-list">
+            </ul>
+        </div>
+        <script src="/popup/popup.js"></script>
+    </body>
+</html>
